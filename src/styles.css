@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #0B3C5D;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
