@@ -1,0 +1,327 @@
+<!-- home.component.html -->
+<div style="font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial; color:#1A1A1A; line-height:1.6;">
+
+  <!-- Header (exactly 100px tall) -->
+  <header class="topbar" style="height:100px; background:linear-gradient(90deg,#0B3C5D,#0a3450); color:#f8fafc; padding:0 24px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:1000;">
+    <div style="display:flex; align-items:center; gap:24px; min-width:0;">
+      <div class="brand" style="font-weight:800; letter-spacing:0.6px; white-space:nowrap;">HOMECART</div>
+      <nav class="nav-links" style="display:flex; gap:18px; align-items:center; white-space:nowrap;">
+        <a href="#features" (click)="$event.preventDefault(); scrollTo('features')" style="text-decoration:none; color:#e2e8f0; font-weight:500;">Features</a>
+        <a href="#why" (click)="$event.preventDefault(); scrollTo('why')" style="text-decoration:none; color:#e2e8f0; font-weight:500;">Why</a>
+        <a href="#integrations" (click)="$event.preventDefault(); scrollTo('integrations')" style="text-decoration:none; color:#e2e8f0; font-weight:500;">Integrations</a>
+        <a href="#plans" (click)="$event.preventDefault(); scrollTo('plans')" style="text-decoration:none; color:#e2e8f0; font-weight:500;">Pricing</a>
+        <a href="#testimonials" (click)="$event.preventDefault(); scrollTo('testimonials')" style="text-decoration:none; color:#e2e8f0; font-weight:500;">Testimonials</a>
+      </nav>
+    </div>
+    <!-- Burger menu as link (no buttons allowed in header) -->
+    <a class="burger" href="#menu" (click)="$event.preventDefault(); toggleMenu()" style="display:none; text-decoration:none; color:#e2e8f0; font-weight:700; font-size:20px;">☰</a>
+  </header>
+
+  <!-- Mobile menu card -->
+  <div *ngIf="menuOpen" class="mobile-menu" style="display:none; position:fixed; top:100px; left:0; right:0; background:#ffffff; border-bottom:1px solid #e2e8f0; z-index:999; box-shadow:0 8px 20px rgba(2,6,23,0.15);">
+    <div style="padding:16px; display:flex; flex-direction:column; gap:10px;">
+      <a href="#features" (click)="$event.preventDefault(); scrollTo('features')" style="text-decoration:none; color:#0f172a; font-weight:600;">Features</a>
+      <a href="#why" (click)="$event.preventDefault(); scrollTo('why')" style="text-decoration:none; color:#0f172a; font-weight:600;">Why</a>
+      <a href="#integrations" (click)="$event.preventDefault(); scrollTo('integrations')" style="text-decoration:none; color:#0f172a; font-weight:600;">Integrations</a>
+      <a href="#plans" (click)="$event.preventDefault(); scrollTo('plans')" style="text-decoration:none; color:#0f172a; font-weight:600;">Pricing</a>
+      <a href="#testimonials" (click)="$event.preventDefault(); scrollTo('testimonials')" style="text-decoration:none; color:#0f172a; font-weight:600;">Testimonials</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" style="background:linear-gradient(180deg,#f1f5f9, #ffffff); padding:56px 16px;">
+    <mat-card style="max-width:1100px; margin:0 auto; padding:32px; border-radius:16px; box-shadow:0 10px 30px rgba(2,6,23,0.08);">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between;">
+        <div style="flex:1 1 480px; min-width:300px;">
+          <h1 style="margin:0 0 12px 0; font-size:40px; line-height:1.2; color:#0f172a;">Launch your household goods store in a weekend</h1>
+          <p style="margin:0 0 16px 0; font-size:16px; color:#334155;">HomeCart gives you a production-ready ecommerce app—storefront, payments, shipping, and inventory—so you can start selling faster.</p>
+          <ul style="padding-left:18px; margin:0 0 20px 0; color:#334155;">
+            <li>Beautiful, fast storefront optimized for conversions</li>
+            <li>Secure checkout with cards, wallets, and BNPL</li>
+            <li>Real-time inventory, variants, and bundles</li>
+            <li>Built-in shipping labels, taxes, and returns</li>
+          </ul>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button mat-raised-button color="primary" style="background:#0B3C5D; color:#ffffff; padding:0 20px; height:44px; border-radius:8px; font-weight:600;">Start free trial</button>
+            <button mat-stroked-button style="height:44px; border-radius:8px; border-color:#cbd5e1; color:#0f172a;">Book a demo</button>
+          </div>
+          <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">14-day free trial. No credit card required.</p>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+
+  <!-- Features -->
+  <section id="features" style="padding:48px 16px; background:#ffffff;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Everything You Need to Sell</h2>
+      <p style="margin:0 0 16px 0; color:#475569;">All-in-one ecommerce, built for home essentials. From product pages to post-purchase, every touchpoint is optimized to turn browsers into buyers.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px;">
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Fast Storefront</mat-card-title>
+          <mat-card-content style="color:#334155;">SEO-friendly pages, instant search, and mobile-first design.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Inventory & Variants</mat-card-title>
+          <mat-card-content style="color:#334155;">Track SKUs, sizes, colors, and bundles with real-time sync.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Secure Checkout</mat-card-title>
+          <mat-card-content style="color:#334155;">PCI-DSS compliant flows with 3D Secure and fraud tools.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Shipping & Returns</mat-card-title>
+          <mat-card-content style="color:#334155;">Live rates, label printing, tracking, and self-serve returns.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Promotions & Loyalty</mat-card-title>
+          <mat-card-content style="color:#334155;">Coupons, tiered discounts, subscriptions, and points.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:20px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a; margin-bottom:6px;">Analytics</mat-card-title>
+          <mat-card-content style="color:#334155;">Dashboards for revenue, cohorts, and product performance.</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why HomeCart -->
+  <section id="why" style="padding:48px 16px; background:#f8fafc;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Built for speed, trust, and growth</h2>
+      <p style="margin:0 0 16px 0; color:#475569;">Skip the tech debt and launch with battle-tested commerce foundations.</p>
+      <ul style="padding-left:18px; margin:0 0 20px 0; color:#334155;">
+        <li>Launch in days with opinionated best practices</li>
+        <li>97+ Lighthouse performance on product pages</li>
+        <li>Lower total cost than stitching multiple tools</li>
+        <li>Scales from 100 to 100,000 orders/month</li>
+        <li>Human support from implementation to growth</li>
+      </ul>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button mat-stroked-button style="height:42px; border-radius:8px; border-color:#cbd5e1; color:#0f172a;">See how it compares</button>
+        <button mat-raised-button color="primary" style="height:42px; border-radius:8px; background:#0B3C5D; color:#ffffff;">Talk to an expert</button>
+      </div>
+      <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">Migrate from spreadsheets or other platforms without downtime.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="padding:48px 16px; background:#ffffff;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Commerce that lets home brands focus on products, not plumbing</h2>
+      <p style="margin:0 0 16px 0; color:#475569;">We built HomeCart after helping dozens of home goods shops outgrow fragile plugins and custom code.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; margin-bottom:16px;">
+        <mat-card style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-content style="color:#334155;">Founded in 2020; powering 1,200+ active stores</mat-card-content>
+        </mat-card>
+        <mat-card style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-content style="color:#334155;">99.95% uptime with global edge delivery</mat-card-content>
+        </mat-card>
+        <mat-card style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-content style="color:#334155;">SOC 2 and PCI-DSS aligned practices</mat-card-content>
+        </mat-card>
+        <mat-card style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-content style="color:#334155;">Transparent roadmap and weekly releases</mat-card-content>
+        </mat-card>
+        <mat-card style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-content style="color:#334155;">Climate-neutral hosting and packaging partners</mat-card-content>
+        </mat-card>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button mat-raised-button color="primary" style="height:42px; border-radius:8px; background:#0B3C5D; color:#ffffff;">Read our story</button>
+        <button mat-stroked-button style="height:42px; border-radius:8px; border-color:#cbd5e1; color:#0f172a;">View status page</button>
+      </div>
+      <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">Backed by a dedicated success team and merchant community.</p>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section id="integrations" style="padding:48px 16px; background:#f8fafc;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Works with your favorite tools</h2>
+      <p style="margin:0 0 16px 0; color:#475569;">Plug into payments, shipping, accounting, and marketing in minutes—no fragile glue code.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px;">
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Payments</mat-card-title>
+          <mat-card-content style="color:#334155;">Stripe, PayPal, Apple Pay, Google Pay, Klarna.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Shipping</mat-card-title>
+          <mat-card-content style="color:#334155;">Shippo, ShipStation, EasyPost with live rates.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Accounting</mat-card-title>
+          <mat-card-content style="color:#334155;">QuickBooks Online, Xero sync for orders and taxes.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Marketing</mat-card-title>
+          <mat-card-content style="color:#334155;">Klaviyo, Mailchimp, Postscript, and webhooks.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Analytics</mat-card-title>
+          <mat-card-content style="color:#334155;">Google Analytics 4, Meta Pixel, server-side events.</mat-card-content>
+        </mat-card>
+        <mat-card class="feature-card" style="border-radius:12px; padding:18px; border:1px solid #e2e8f0;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Catalog Import</mat-card-title>
+          <mat-card-content style="color:#334155;">CSV import, bulk edit, and SKU deduplication.</mat-card-content>
+        </mat-card>
+      </div>
+      <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button mat-raised-button color="primary" style="height:42px; border-radius:8px; background:#0B3C5D; color:#ffffff;">See all integrations</button>
+        <button mat-stroked-button style="height:42px; border-radius:8px; border-color:#cbd5e1; color:#0f172a;">Developer docs</button>
+      </div>
+      <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">Open REST and GraphQL APIs.</p>
+    </div>
+  </section>
+
+  <!-- Pricing / Plans -->
+  <section id="plans" style="padding:48px 16px; background:#ffffff;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Simple pricing that grows with you</h2>
+      <p style="margin:0 0 24px 0; color:#475569;">Start free. Upgrade when you launch—no hidden fees, cancel anytime.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:16px;">
+        <!-- Starter -->
+        <mat-card style="flex:1 1 300px; min-width:280px; border:1px solid #e2e8f0; border-radius:14px; padding:20px; background:#ffffff;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Starter</mat-card-title>
+          <div style="margin:6px 0 14px 0; font-size:24px; color:#0f172a;">$29/mo</div>
+          <ul style="padding-left:18px; margin:0 0 16px 0; color:#334155;">
+            <li>Up to 500 orders/mo</li>
+            <li>Unlimited products and variants</li>
+            <li>Coupons, basic analytics</li>
+            <li>Email support</li>
+          </ul>
+          <button mat-stroked-button style="width:100%; border-color:#cbd5e1; color:#0f172a; height:42px;">Choose Starter</button>
+        </mat-card>
+
+        <!-- Growth -->
+        <mat-card style="flex:1 1 300px; min-width:280px; border:2px solid #0B3C5D; border-radius:16px; padding:22px; background:#0B3C5D; color:#f8fafc; transform:translateY(-4px); box-shadow:0 12px 30px rgba(2,6,23,0.15);">
+          <mat-card-title style="font-size:18px; color:#f8fafc;">Growth</mat-card-title>
+          <div style="margin:6px 0 14px 0; font-size:24px; color:#f8fafc;">$99/mo</div>
+          <ul style="padding-left:18px; margin:0 0 16px 0; color:#e2e8f0;">
+            <li>Up to 5,000 orders/mo</li>
+            <li>Subscriptions and bundles</li>
+            <li>Abandoned cart recovery</li>
+            <li>Priority chat support</li>
+          </ul>
+          <button mat-raised-button color="accent" style="width:100%; height:44px; background:#F9A602; color:#1A1A1A; font-weight:700;">Start Growth</button>
+        </mat-card>
+
+        <!-- Scale -->
+        <mat-card style="flex:1 1 300px; min-width:280px; border:1px solid #e2e8f0; border-radius:14px; padding:20px; background:#ffffff;">
+          <mat-card-title style="font-size:18px; color:#0f172a;">Scale</mat-card-title>
+          <div style="margin:6px 0 14px 0; font-size:24px; color:#0f172a;">$299/mo</div>
+          <ul style="padding-left:18px; margin:0 0 16px 0; color:#334155;">
+            <li>Unlimited orders</li>
+            <li>Advanced analytics and cohorts</li>
+            <li>Dedicated onboarding</li>
+            <li>24/7 support and SLA</li>
+          </ul>
+          <button mat-stroked-button style="width:100%; border-color:#cbd5e1; color:#0f172a; height:42px;">Talk to Sales</button>
+        </mat-card>
+      </div>
+      <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">Taxes and third-party gateway fees billed separately.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" style="padding:48px 16px; background:#f8fafc;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Trusted by modern home brands</h2>
+      <p style="margin:0 0 24px 0; color:#475569;">Real stores. Real growth. Real support.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:16px;">
+        <mat-card style="flex:1 1 320px; min-width:280px; border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#ffffff;">
+          <p style="margin:0 0 4px 0; color:#0f172a; font-weight:700;">Maya Chen · <span style="font-weight:500; color:#334155;">Founder, TidyNest</span></p>
+          <p style="margin:0; color:#334155;">“We launched in 6 days and cut our checkout abandonment by 21% in month one.”</p>
+        </mat-card>
+        <mat-card style="flex:1 1 320px; min-width:280px; border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#ffffff;">
+          <p style="margin:0 0 4px 0; color:#0f172a; font-weight:700;">Luis Romero · <span style="font-weight:500; color:#334155;">COO, CasaClean</span></p>
+          <p style="margin:0; color:#334155;">“Inventory bundles and subscriptions boosted repeat revenue by 32% without extra plugins.”</p>
+        </mat-card>
+        <mat-card style="flex:1 1 320px; min-width:280px; border:1px solid #e2e8f0; border-radius:12px; padding:18px; background:#ffffff;">
+          <p style="margin:0 0 4px 0; color:#0f172a; font-weight:700;">Anika S. · <span style="font-weight:500; color:#334155;">Owner, Hearth & Hues</span></p>
+          <p style="margin:0; color:#334155;">“Support actually feels like a partner. Migrations and setup were painless.”</p>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding:48px 16px; background:#ffffff;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="margin:0 0 8px 0; font-size:28px; color:#0f172a;">Frequently Asked Questions</h2>
+      <p style="margin:0 0 16px 0; color:#475569;">Answers before you start. If you're moving from spreadsheets or another platform, we'll meet you where you are.</p>
+      <mat-accordion multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>Can I import products?</span>
+          </mat-expansion-panel-header>
+          <p style="margin:0; color:#334155;">Yes—CSV import with image mapping and variant support.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>How fast can I launch?</span>
+          </mat-expansion-panel-header>
+          <p style="margin:0; color:#334155;">Most stores go live in under a week using our templates.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>Do you support returns?</span>
+          </mat-expansion-panel-header>
+          <p style="margin:0; color:#334155;">Yes—self-serve returns portal with RMAs and label generation.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>Can I use my domain?</span>
+          </mat-expansion-panel-header>
+          <p style="margin:0; color:#334155;">Yes—bring your domain with automatic SSL.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <span>Is checkout secure?</span>
+          </mat-expansion-panel-header>
+          <p style="margin:0; color:#334155;">Yes—PCI-DSS aligned, tokenized payments, and 3D Secure where available.</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button mat-stroked-button style="height:42px; border-radius:8px; border-color:#cbd5e1; color:#0f172a;">Read full FAQ</button>
+        <button mat-raised-button color="primary" style="height:42px; border-radius:8px; background:#0B3C5D; color:#ffffff;">Contact support</button>
+      </div>
+      <p style="margin:12px 0 0 0; font-size:12px; color:#64748b;">Didn't find your answer? Ask our team on live chat.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0B3C5D; color:#e2e8f0;">
+    <div style="max-width:1100px; margin:0 auto; padding:28px 16px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; justify-content:space-between;">
+      <div style="min-width:260px;">
+        <div style="font-weight:800; margin-bottom:6px; letter-spacing:0.6px;">HOMECART</div>
+        <div style="font-size:13px; color:#cbd5e1;">HomeCart is the all-in-one ecommerce application for household goods—fast storefronts, secure checkout, and integrated shipping so you can focus on products.</div>
+      </div>
+      <div style="display:flex; gap:32px; flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:700; margin-bottom:8px; color:#f1f5f9;">Product</div>
+          <a href="#features" (click)="$event.preventDefault(); scrollTo('features')" style="display:block; text-decoration:none; color:#cbd5e1; margin-bottom:6px;">Features</a>
+          <a href="#plans" (click)="$event.preventDefault(); scrollTo('plans')" style="display:block; text-decoration:none; color:#cbd5e1; margin-bottom:6px;">Pricing</a>
+          <a href="#integrations" (click)="$event.preventDefault(); scrollTo('integrations')" style="display:block; text-decoration:none; color:#cbd5e1;">Integrations</a>
+        </div>
+        <div>
+          <div style="font-weight:700; margin-bottom:8px; color:#f1f5f9;">Company</div>
+          <a href="#about" (click)="$event.preventDefault(); scrollTo('about')" style="display:block; text-decoration:none; color:#cbd5e1; margin-bottom:6px;">About</a>
+          <a href="#" style="display:block; text-decoration:none; color:#cbd5e1; margin-bottom:6px;">Careers</a>
+          <a href="#" style="display:block; text-decoration:none; color:#cbd5e1;">Contact</a>
+        </div>
+        <div>
+          <div style="font-weight:700; margin-bottom:8px; color:#f1f5f9;">Legal</div>
+          <a href="#" style="display:block; text-decoration:none; color:#cbd5e1; margin-bottom:6px;">Privacy</a>
+          <a href="#" style="display:block; text-decoration:none; color:#cbd5e1;">Terms</a>
+        </div>
+      </div>
+    </div>
+    <mat-divider style="border-top-color:#0a3450;"></mat-divider>
+    <div style="max-width:1100px; margin:0 auto; padding:14px 16px; font-size:12px; color:#cbd5e1;">
+      © 2025 homecart. All rights reserved.
+    </div>
+  </footer>
+
+</div>
